@@ -1,0 +1,20 @@
+<odoo>
+<record id="view_crm_lead_form_custom" model="ir.ui.view">
+    <field name="name">crm.lead.form.custom</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_lead_view_form" />
+    <field name="arch" type="xml">
+        <header position="inside">
+		    <button name="action_call_connected_interested" type="object" string="Call Connected (Interested)"/>
+		    <button name="action_call_connected_not_interested" type="object" string="Call Connected (Not Interested)"/>
+		    <button name="action_call_not_connected" type="object" string="Call Not Connected"/>
+		    <button name="action_may_buy_later" type="object" string="May Buy Later"/>
+		    <button name="action_disqualify" type="object" string="Disqualify"/>
+		</header>
+        
+        <field name="tag_ids" position="after">
+            <field name="follow_up_level" readonly="1"/>
+        </field>
+    </field>
+</record>
+</odoo>

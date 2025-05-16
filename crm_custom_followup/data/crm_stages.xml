@@ -1,0 +1,65 @@
+<odoo>
+<record id="stage_prospect" model="crm.stage">
+    <field name="name">Prospect</field>
+    <field name="sequence">0</field>
+</record>
+
+<!-- Repeat for Follow Up - 1 through 7 -->
+<record id="stage_follow_up_1" model="crm.stage">
+    <field name="name">Follow Up 1</field>
+    <field name="sequence">4</field>
+</record>
+<record id="stage_follow_up_2" model="crm.stage">
+     <field name="name">Follow Up 2</field>
+     <field name="sequence">5</field>
+</record>
+<record id="stage_follow_up_3" model="crm.stage">
+    <field name="name">Follow Up 3</field>
+    <field name="sequence">6</field>
+</record>
+<record id="stage_follow_up_4" model="crm.stage">
+     <field name="name">Follow Up 4</field>
+     <field name="sequence">7</field>
+</record>
+<record id="stage_follow_up_5" model="crm.stage">
+    <field name="name">Follow Up 5</field>
+    <field name="sequence">8</field>
+</record>
+<record id="stage_follow_up_6" model="crm.stage">
+    <field name="name">Follow Up 6</field>
+    <field name="sequence">9</field>
+</record>
+<record id="stage_follow_up_7" model="crm.stage">
+    <field name="name">Follow Up 7</field>
+    <field name="sequence">10</field>
+</record>
+
+
+<!-- Other Stages -->
+<record id="stage_interested" model="crm.stage">
+    <field name="name">Interested</field>
+    <field name="sequence">10</field>
+</record>
+
+<record id="stage_may_buy_later" model="crm.stage">
+    <field name="name">May Buy Later</field>
+    <field name="sequence">11</field>
+</record>
+
+<record id="stage_not_interested" model="crm.stage">
+    <field name="name">Not Interested</field>
+    <field name="sequence">12</field>
+</record>
+
+<record id="stage_disqualified" model="crm.stage">
+    <field name="name">Disqualified</field>
+    <field name="sequence">13</field>
+</record>
+
+<record id="stage_sale" model="crm.stage">
+    <field name="name">SALE</field>
+    <field name="sequence">14</field>
+    <field name="is_won">1</field>
+</record>
+
+</odoo>
