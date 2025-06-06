@@ -1,7 +1,7 @@
 
 {
     'name': 'CRM Custom Follow-Up Flow',
-    'version': '16.0.1.0.1',
+    'version': '16.0.1.0.2',
     'category': 'Sales/CRM',
     'summary': 'Custom CRM workflow with follow-up stages and transitions',
     'description': """
