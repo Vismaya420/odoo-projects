@@ -1,0 +1,119 @@
+
+<odoo>
+
+    <record id="seq_purchase_rental" model="ir.sequence">
+        <field name="name">Purchase Rental</field>
+        <field name="code">purchase.rental</field>
+        <field name="prefix">PR</field>
+        <field name="padding">3</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="view_purchase_rental_tree" model="ir.ui.view">
+        <field name="name">purchase.rental.list</field>
+        <field name="model">purchase.rental</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="order_date"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record> 
+
+    <record id="view_purchase_rental_form" model="ir.ui.view">
+        <field name="name">purchase.rental.form</field>
+        <field name="model">purchase.rental</field>
+        <field name="arch" type="xml">
+            <form>
+                   <header>
+					    <button name="action_confirm"
+					            string="Confirm"
+					            type="object"
+					            class="btn-primary"
+					            invisible="state != 'requested'"/>
+					
+					    <button name="action_receive"
+					            string="Mark as Received"
+					            type="object"
+					            invisible="state != 'confirmed'"/>
+					
+					    <button name="action_return"
+					            string="Return"
+					            type="object"
+					            invisible="state != 'received'"/>
+					
+					    <button name="action_cancel"
+					            string="Cancel"
+					            type="object"
+					            invisible="state not in ('requested','confirmed')"/>
+					
+					    <button name="action_reset_to_requested"
+					            string="Set to Draft"
+					            type="object"
+					            invisible="state != 'cancelled'"/>
+					    
+					    <button name="action_create_bill"
+						        string="Create Bill"
+						        type="object"
+						        class="btn-primary"
+						        invisible="state not in ('confirmed','received','returned')"/>/>
+											    
+				    	<field name="state" widget="statusbar"/>
+                
+                </header>
+                <sheet>
+	                <div class="oe_button_box" name="button_box">
+			            <button name="action_view_bills"
+			            string="Bills"
+			                    type="object"
+			                    class="oe_stat_button"
+			                    icon="fa-file-text-o">
+			            </button>
+			        </div>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                    	<group>
+	                        <field name="partner_id"/>
+	                        <field name="order_date"/>
+	                        <field name="scheduled_date"/>
+                        </group>
+                        <group>
+	                        
+	                        <field name="company_id"/>
+	                        <field name="currency_id"/>
+	                        <field name="user_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Rental Lines">
+                            <field name="line_ids">
+                                    <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="product_qty"/>
+                                    <field name="price_unit"/>
+                                    <field name="tax_ids"/>
+                                    <field name="subtotal" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_purchase_rental" model="ir.actions.act_window">
+        <field name="name">Purchase Rentals</field>
+        <field name="res_model">purchase.rental</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

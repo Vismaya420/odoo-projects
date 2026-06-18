@@ -1,0 +1,12 @@
+<odoo>
+	<record id="action_report_purchase_rental" model="ir.actions.report">
+		<field name="name">Purchase Rental Order</field>
+		<field name="model">purchase.rental</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">purchase_rentals.report_purchase_rental</field>
+		<field name="report_file">purchase_rentals.report_purchase_rental</field>
+		<field name="binding_model_id" ref="model_purchase_rental"/>
+	</record>
+	
+</odoo>
+	
